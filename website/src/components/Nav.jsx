@@ -3,10 +3,7 @@ import styles from './Nav.module.css'
 export default function Nav({ page, setPage }) {
   return (
     <nav className={styles.nav}>
-      <button
-        className={styles.logo}
-        onClick={() => setPage('home')}
-      >
+      <button className={styles.logo} onClick={() => setPage('home')}>
         RD
       </button>
       <div className={styles.links}>
@@ -15,6 +12,12 @@ export default function Nav({ page, setPage }) {
           onClick={() => setPage('corner')}
         >
           Random Corner
+        </button>
+        <button
+          className={`${styles.link} ${page === 'thursday' ? styles.active : ''}`}
+          onClick={() => setPage('thursday')}
+        >
+          Thursdays
         </button>
         <button
           className={`${styles.link} ${page === 'about' ? styles.active : ''}`}

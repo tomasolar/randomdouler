@@ -32,7 +32,7 @@
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c9a84c;
+  color: #d4933a;
   opacity: 0.8;
 }
 
@@ -47,7 +47,7 @@
 
 .title em {
   font-style: italic;
-  color: #c9a84c;
+  color: #d4933a;
 }
 
 .sub {
@@ -75,8 +75,8 @@
 
 .cta:hover {
   background: rgba(201, 168, 76, 0.1);
-  border-color: #c9a84c;
-  color: #c9a84c;
+  border-color: #d4933a;
+  color: #d4933a;
 }
 
 /* right column */
@@ -111,7 +111,7 @@
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c9a84c;
+  color: #d4933a;
   opacity: 0.7;
 }
 
@@ -133,7 +133,7 @@
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #c9a84c;
+  color: #d4933a;
   margin-top: 4px;
 }
 

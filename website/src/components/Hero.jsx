@@ -13,9 +13,9 @@ export default function Hero({ setPage }) {
         </p>
         <button
           className={styles.cta}
-          onClick={() => setPage('corner')}
+          onClick={() => setPage('thursday')}
         >
-          Enter Random Corner →
+          This Thursday →
         </button>
       </div>
 
