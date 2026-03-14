@@ -1,192 +1,349 @@
-.hero {
+/* ── OPENER ─────────────────────────────────────────────── */
+.page { min-height: 100vh; }
+
+.opener {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
-  padding: 120px 48px 48px;
-  gap: 48px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 48px 48px;
+  overflow: hidden;
 }
 
-/* subtle noise texture */
-.hero::before {
-  content: '';
-  position: fixed;
+.openerBg {
+  position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: 0.5;
+  background-image: url(/entrance.jpg);
+  background-size: cover;
+  background-position: center 30%;
+  filter: brightness(0.18) saturate(0.6);
   z-index: 0;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 24px;
-  position: relative;
+.openerOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(212,147,58,0.15) 0%, transparent 60%),
+    linear-gradient(to top, rgba(10,8,6,0.95) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(10,8,6,0.7) 0%, transparent 30%);
   z-index: 1;
 }
 
-.eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.2em;
+.openerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.openerLabel {
+  font-size: 11px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #d4933a;
-  opacity: 0.8;
+  color: #4a4540;
 }
 
-.title {
+.openerCenter {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.mainTitle {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(64px, 8vw, 110px);
   font-weight: 400;
-  line-height: 0.95;
-  color: #f5f3ef;
-  letter-spacing: -0.02em;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title em {
+.mainTitleLine1 {
+  font-size: clamp(80px, 16vw, 220px);
+  color: #f0ece4;
+  display: block;
+}
+
+.mainTitleLine2 {
+  font-size: clamp(80px, 16vw, 220px);
+  display: block;
+}
+
+.mainTitleLine2 em {
   font-style: italic;
   color: #d4933a;
 }
 
-.sub {
-  font-size: 16px;
-  color: #888;
-  letter-spacing: 0.02em;
-  max-width: 300px;
+.openerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
 }
 
-.cta {
+.openerSub {
+  font-size: 16px;
+  color: #6b6560;
+  font-style: italic;
+}
+
+.openerCta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  letter-spacing: 0.1em;
+  font-size: 12px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #f5f3ef;
+  color: #f0ece4;
   border: 1px solid rgba(255,255,255,0.15);
   padding: 14px 28px;
   border-radius: 2px;
-  width: fit-content;
-  margin-top: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
-.cta:hover {
-  background: rgba(201, 168, 76, 0.1);
+.openerCta:hover {
   border-color: #d4933a;
   color: #d4933a;
+  background: rgba(212,147,58,0.05);
 }
 
-/* right column */
-.aside {
+/* vertical labels */
+.sideTextLeft,
+.sideTextRight {
+  position: absolute;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #2a2520;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sideTextLeft { left: 16px; }
+.sideTextRight { right: 16px; transform: translateY(-50%) rotate(180deg); }
+
+/* ── MARQUEE ──────────────────────────────────────────── */
+.marqueeWrap {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  padding: 14px 0;
+  background: #080604;
+}
+
+.marquee {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 24px;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee span {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d4933a;
+  opacity: 0.5;
+  padding-right: 0;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── TWO ROOMS ────────────────────────────────────────── */
+.rooms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 80vh;
+  min-height: 500px;
+}
+
+.roomCard {
   position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.roomImg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3) saturate(0.7);
+  transition: filter 0.6s ease, transform 0.6s ease;
+  transform: scale(1.02);
+}
+
+.roomCard:hover .roomImg {
+  filter: brightness(0.45) saturate(0.8);
+  transform: scale(1);
+}
+
+.roomOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,8,6,0.95) 0%, rgba(10,8,6,0.2) 60%, transparent 100%);
   z-index: 1;
 }
 
-.card {
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 36px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: rgba(255,255,255,0.02);
+.roomContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-.card:hover {
-  border-color: rgba(201,168,76,0.3);
-  background: rgba(201,168,76,0.04);
-  transform: translateY(-2px);
-}
-
-.cardLabel {
-  font-size: 11px;
-  letter-spacing: 0.2em;
+.roomEyebrow {
+  font-size: 10px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #d4933a;
   opacity: 0.7;
 }
 
-.cardTitle {
+.roomTitle {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: clamp(36px, 5vw, 64px);
   font-weight: 400;
-  color: #f5f3ef;
-  letter-spacing: -0.01em;
+  color: #f0ece4;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
 }
 
-.cardText {
+.roomTitle em { font-style: italic; color: #d4933a; }
+
+.roomText {
   font-size: 14px;
-  color: #777;
+  color: #6b6560;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.roomLink {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4933a;
+  margin-top: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s;
+}
+
+.roomCard:hover .roomLink {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* border between rooms */
+.rooms .roomCard:first-child {
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+
+/* ── FACTLINE ────────────────────────────────────────── */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  padding: 60px 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  gap: 32px;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.factNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #d4933a;
+  opacity: 0.5;
+}
+
+.factText {
+  font-size: 14px;
+  color: #6b6560;
   line-height: 1.7;
 }
 
-.cardLink {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #d4933a;
-  margin-top: 4px;
-}
-
-.info {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
+.factDivider {
+  width: 1px;
+  height: 60px;
   background: rgba(255,255,255,0.06);
-  border-radius: 4px;
+  align-self: center;
+}
+
+/* ── BAR SHOT ─────────────────────────────────────────── */
+.barShot {
+  position: relative;
+  height: 70vh;
+  min-height: 400px;
   overflow: hidden;
-}
-
-.infoItem {
-  background: #080807;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: flex-end;
 }
 
-.infoLabel {
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #555;
+.barShotImg {
+  position: absolute;
+  inset: 0;
+  background-image: url(/bar.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5) saturate(0.85);
 }
 
-.infoValue {
-  font-size: 14px;
-  color: #f5f3ef;
-}
-
-/* bottom bar */
-.scrollHint {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.barShotText {
   position: relative;
   z-index: 1;
+  padding: 48px;
+  background: linear-gradient(to right, rgba(10,8,6,0.9) 0%, transparent 70%);
+  width: 100%;
 }
 
-.scrollHint span {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #333;
+.barPull {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 52px);
+  color: #f0ece4;
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
 
+.barSub {
+  font-size: 15px;
+  color: #6b6560;
+  font-style: italic;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
 @media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 100px 24px 40px;
-  }
-  .info { grid-template-columns: 1fr 1fr; }
+  .opener { padding: 24px 24px 40px; }
+  .rooms { grid-template-columns: 1fr; height: auto; }
+  .rooms .roomCard { height: 60vw; min-height: 300px; }
+  .rooms .roomCard:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .facts { grid-template-columns: 1fr; gap: 28px; padding: 48px 24px; }
+  .factDivider { width: 60px; height: 1px; }
+  .barShotText { padding: 32px 24px; }
+  .openerBottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .sideTextLeft, .sideTextRight { display: none; }
 }

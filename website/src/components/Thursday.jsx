@@ -14,15 +14,22 @@ export default function Thursday() {
       {/* ── HERO ── */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
-        <div className={styles.heroContent}>
-          <p className={styles.recurring}>Every Thursday · From 20:00</p>
-          <h1 className={styles.title}>Jam<br /><em>Night</em></h1>
-          <p className={styles.location}>Random Corner · Polígono · Marbella</p>
+        <div className={styles.heroOverlay} />
+
+        <div className={styles.heroTop}>
+          <span className={styles.recurring}>Every Thursday · From 20:00</span>
+          <span className={styles.heroLocation}>Random Corner · Polígono · Marbella</span>
         </div>
+
+        <div className={styles.heroCenter}>
+          <h1 className={styles.title}>
+            <span>Jam</span>
+            <em>Night</em>
+          </h1>
+        </div>
+
         <div className={styles.heroBottom}>
-          <p className={styles.tagline}>
-            No tickets. No set lists. Just show up.
-          </p>
+          <p className={styles.tagline}>No tickets. No set lists. Just show up.</p>
           <div className={styles.time}>
             <span className={styles.timeNum}>20:00</span>
             <span className={styles.timeDivider}>—</span>
@@ -31,7 +38,7 @@ export default function Thursday() {
         </div>
       </section>
 
-      {/* ── WHAT HAPPENS ── */}
+      {/* ── WHAT ── */}
       <section className={styles.what}>
         <p className={styles.whatText}>
           An industrial block in the polígono. Inside: tree branches climbing the walls,
@@ -39,16 +46,23 @@ export default function Thursday() {
           Someone already playing when you arrive. Nothing scheduled.
           Everything happens anyway.
         </p>
+        <div className={styles.whatRule} />
       </section>
 
       {/* ── ART ON THE WALLS ── */}
       <section className={styles.artSection}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionEyebrow}>On the Walls</span>
-          <h2 className={styles.sectionTitle}>Works Available</h2>
-          <p className={styles.sectionSub}>
-            Every Thursday the studio is live. Come for the music,
-            leave with something on your wall.
+        <div className={styles.artLeft}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionEyebrow}>On the Walls</span>
+            <h2 className={styles.sectionTitle}>Works<br /><em>Available</em></h2>
+            <p className={styles.sectionSub}>
+              Every Thursday the studio is live. Come for the music,
+              leave with something on your wall.
+            </p>
+          </div>
+          <p className={styles.artNote}>
+            Interested in a work? Come to a Thursday and meet Niko directly.
+            That's how it works here.
           </p>
         </div>
 
@@ -56,7 +70,6 @@ export default function Thursday() {
           {works.map(w => (
             <div key={w.id} className={`${styles.workCard} ${w.status === 'sold' ? styles.workSold : ''}`}>
               <div className={styles.workImage}>
-                {/* swap this div for an <img> when you have photos */}
                 <div className={styles.workPlaceholder} />
                 <span className={styles.workStatus}>
                   {w.status === 'available' ? 'Available' : 'Sold'}
@@ -69,12 +82,13 @@ export default function Thursday() {
             </div>
           ))}
         </div>
-
-        <p className={styles.artNote}>
-          Interested in a work? Come to a Thursday and meet Niko directly.
-          That's how it works here.
-        </p>
       </section>
+
+      {/* ── ART PHOTO DIVIDER ── */}
+      <div className={styles.photoDivider} style={{ backgroundImage: 'url(/art.jpg)' }}>
+        <div className={styles.photoDividerOverlay} />
+        <span className={styles.photoDividerText}>The paintings are watching.</span>
+      </div>
 
       {/* ── FOR BANDS ── */}
       <section className={styles.bandsSection}>
@@ -141,13 +155,24 @@ export default function Thursday() {
         </div>
       </section>
 
+      {/* ── BAR FULL BLEED ── */}
+      <section className={styles.barFull}>
+        <div className={styles.barFullBg} />
+        <div className={styles.barFullContent}>
+          <span className={styles.barEyebrow}>The Bar</span>
+          <p className={styles.barQuote}>
+            "Floor to ceiling. Amber light.<br />You'll know when you're in it."
+          </p>
+        </div>
+      </section>
+
       {/* ── FIND US ── */}
       <section className={styles.find}>
         <h2 className={styles.findTitle}>Finding Us</h2>
         <p className={styles.findText}>
           We're in the industrial zone. Not the most obvious destination.
           That's the point — the people who make the effort are always
-          the right people. Look for the light on.
+          the right people. You'll pass warehouses. Keep going. Look for the light on.
         </p>
         <div className={styles.findDetails}>
           <div className={styles.findItem}>
@@ -167,6 +192,7 @@ export default function Thursday() {
 
       {/* ── CLOSER ── */}
       <section className={styles.closer}>
+        <div className={styles.closerBg} />
         <blockquote className={styles.quote}>
           "You're holding a glass of wine. Through it, the whole room glows.
           Someone is playing something you've never heard before.
