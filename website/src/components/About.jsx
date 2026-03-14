@@ -15,7 +15,7 @@ export default function About() {
             <span className={styles.role}>Artistic Director · 66.6%</span>
           </div>
           <p className={styles.bio}>
-            Finnish visual artist based in Marbella. Random Corner is built around his studio practice and production. He creates the work, defines the artistic direction of the space, and builds relationships with collectors.
+            Finnish painter, now in Marbella. Grew up in the north — tundra, silence, long winters. Ended up in the Mediterranean with a rented industrial unit and a plan. Builds tree branches into his walls. Makes large dark paintings. Finds the joke in everything.
           </p>
           <div className={styles.responsibilities}>
             <span>Artwork creation</span>
@@ -45,13 +45,16 @@ export default function About() {
       <section className={styles.manifesto}>
         <h2 className={styles.manifestoTitle}>Why This Exists</h2>
         <p>
-          Random Corner began with a simple idea: that creative work needs real places where people can meet, exchange ideas, and create something together.
+          Niko needed a studio. The cheapest studio in Marbella was in an industrial block in the polígono.
+          He took it. Then he made it beautiful in his own way — tree branches, warm light, bottles, paintings everywhere.
         </p>
         <p>
-          In many cities, cultural life has gradually moved into highly commercialized environments. Galleries become formal institutions, music venues become businesses, and spontaneous artistic encounters become increasingly rare.
+          Then Jonathan arrived. A musician looking for the same thing: a place that wasn't a venue,
+          wasn't a gallery, wasn't trying to be anything official. Just a room where things happen.
         </p>
         <p>
-          Random Corner aims to restore something more human.
+          Thursdays started because Thursday was a good night to play music.
+          It stayed because the right people kept showing up.
         </p>
       </section>
     </div>

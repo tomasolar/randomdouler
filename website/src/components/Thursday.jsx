@@ -34,9 +34,10 @@ export default function Thursday() {
       {/* ── WHAT HAPPENS ── */}
       <section className={styles.what}>
         <p className={styles.whatText}>
-          A room in an industrial block. Warm light. Someone already playing.
-          Art on every wall. Musicians meet musicians. Strangers become regulars.
-          Nothing is planned. Everything happens.
+          An industrial block in the polígono. Inside: tree branches climbing the walls,
+          a full bar glowing amber, Niko's paintings watching from every corner.
+          Someone already playing when you arrive. Nothing scheduled.
+          Everything happens anyway.
         </p>
       </section>
 
@@ -124,15 +125,15 @@ export default function Thursday() {
       <section className={styles.vibe}>
         <div className={styles.vibeItem}>
           <span className={styles.vibeLabel}>The Space</span>
-          <span className={styles.vibeValue}>Industrial block. Raw walls. Real art on them.</span>
+          <span className={styles.vibeValue}>Industrial block. Tree branches on every wall. Paintings between them.</span>
         </div>
         <div className={styles.vibeItem}>
           <span className={styles.vibeLabel}>The Music</span>
           <span className={styles.vibeValue}>Open jam. Improvised. Different every week.</span>
         </div>
         <div className={styles.vibeItem}>
-          <span className={styles.vibeLabel}>The Drinks</span>
-          <span className={styles.vibeValue}>Beer, wine, something simple. Stay as long as you want.</span>
+          <span className={styles.vibeLabel}>The Bar</span>
+          <span className={styles.vibeValue}>A whole room. Tree branches, amber light, bottles floor to ceiling. Stay as long as you want.</span>
         </div>
         <div className={styles.vibeItem}>
           <span className={styles.vibeLabel}>Who Comes</span>
@@ -167,8 +168,9 @@ export default function Thursday() {
       {/* ── CLOSER ── */}
       <section className={styles.closer}>
         <blockquote className={styles.quote}>
-          "The kind of night you describe to someone the next day
-          and they wish they'd been there."
+          "You're holding a glass of wine. Through it, the whole room glows.
+          Someone is playing something you've never heard before.
+          You're not going anywhere."
         </blockquote>
       </section>
 
